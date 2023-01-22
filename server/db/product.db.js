@@ -5,10 +5,10 @@ const getAllProductsDb = async ({ limit, offset }) => {
     `select products.*, trunc(avg(reviews.rating)) as avg_rating, count(reviews.*) from products
         LEFT JOIN reviews
         ON products.product_id = reviews.product_id
-        group by products.product_id limit $1 offset $2 `,
+        group by products.product_id order by products.product_id limit $1 offset $2 `,
     [limit, offset]
   );
-  const products = [...rows].sort(() => Math.random() - 0.5);
+  const products = [...rows];
   return products;
 };
 
