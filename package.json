@@ -1,6 +1,9 @@
 {
   "name": "pern-store",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
   "main": "index.js",
   "dependencies": {
     "concurrently": "^7.6.0",
@@ -14,7 +17,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Vidya Rangasayee",
   "license": "ISC",
   "description": ""
 }
