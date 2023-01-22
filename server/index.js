@@ -6,5 +6,6 @@ const { logger } = require("./utils/logger");
 const server = http.createServer(app);
 
 const PORT = process.env.PORT || 8080;
+console.log(PORT);
 
 server.listen(PORT, () => logger.info(`Magic happening on port: ${PORT}`));
