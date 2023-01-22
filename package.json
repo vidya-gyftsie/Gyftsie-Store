@@ -10,7 +10,7 @@
     "react-paypal-checkout-button": "^2.0.3"
   },
   "scripts": {
-    "heroku-prebuild": "cd server && npm install && cd client && npm install && npm run prebuild && npm run prestart",
+    "heroku-prebuild": "cd ~/server && npm install && cd ~/client && npm install && cd ~ && npm run prebuild && npm run prestart",
     "start": "node server",
     "server": "cd server && nodemon",
     "client": "npm start --prefix client",
