@@ -40,6 +40,7 @@ const Cart = () => {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableCell></TableCell>
               <TableCell>Product</TableCell>
               <TableCell>Amount</TableCell>
               <TableCell>Quantity</TableCell>

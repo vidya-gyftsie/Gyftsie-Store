@@ -30,7 +30,7 @@ const PaystackBtn = ({ isProcessing, setIsProcessing }) => {
 
   const config = {
     email: userData.email,
-    amount: (cartSubtotal * 100).toFixed(2),
+    amount: (cartSubtotal * 100),
     publicKey: import.meta.env.VITE_PAYSTACK_PUB_KEY,
   };
 

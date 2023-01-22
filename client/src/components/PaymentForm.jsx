@@ -10,6 +10,8 @@ import PulseLoader from "react-spinners/PulseLoader";
 import OrderService from "services/order.service";
 import OrderSummary from "./OrderSummary";
 import PaystackBtn from "./PaystackBtn";
+import PayPalCheckout from 'react-paypal-checkout-button'
+import 'react-paypal-checkout-button/dist/index.css'
 
 const PaymentForm = ({ previousStep, addressData, nextStep }) => {
   const { cartSubtotal, cartTotal, cartData, setCartData } = useCart();
@@ -28,7 +30,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
     try {
       setIsProcessing(true);
       const { data } = await API.post("/payment", {
-        amount: (cartSubtotal * 100).toFixed(),
+        amount: (cartSubtotal).toFixed(),
         email,
       });
 
@@ -43,7 +45,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
             city,
             line1: address,
             state,
-            country: "NG", // TODO: change later
+            country: "US", // TODO: change later
           },
         },
       });
@@ -74,7 +76,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
     <div className="w-full md:w-1/2">
       <h1 className="text-3xl font-semibold text-center mb-2">Checkout</h1>
       <OrderSummary />
-      <h1 className="font-medium text-2xl">Pay with Stripe</h1>
+      {/*<h1 className="font-medium text-2xl">Pay with Stripe</h1>
       <Elements stripe={stripePromise}>
         <ElementsConsumer>
           {({ stripe, elements }) => (
@@ -97,7 +99,32 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
           )}
         </ElementsConsumer>
       </Elements>
-      <PaystackBtn isProcessing={isProcessing} setIsProcessing={setIsProcessing} />
+      <PaystackBtn isProcessing={isProcessing} setIsProcessing={setIsProcessing} />*/}
+
+      <PayPalCheckout
+          clientId={import.meta.env.VITE_PAYPAL_CLIENT_ID}
+          amount={cartSubtotal}
+          currency='USD'
+          onSuccess={(data, order) => {
+            console.log(data, order);
+            payment_method: order.id;
+            OrderService.createOrder(cartSubtotal, cartTotal, order.id, "PAYPAL").then((neworder) => {
+                setCartData({ ...cartData, items: [] });
+                setIsProcessing(false);
+                navigate("/cart/success", {
+                  state: {
+                    fromPaymentPage: true,
+                    orderId: order.id,
+                  },
+                });
+            });
+
+          }}
+          onError={(error) => {
+            console.log(error);
+            setError(error);
+          }}
+      />
     </div>
   );
 };

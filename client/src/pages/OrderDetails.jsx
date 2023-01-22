@@ -29,19 +29,23 @@ const OrderDetails = () => {
           <h1 className="font-bold text-xl">Items in your order</h1>
           {items?.map((item) => (
             <Card key={item.product_id} className="flex my-4 p-2 md:flex-row flex-col">
-              <img
-                className="sm:w-full md:w-1/2 lg:w-1/3 object-contain md:object-cover"
-                loading="lazy"
-                decoding="async"
-                src={item.image_url}
-                alt={item.name}
-              />
+            
               <CardBody>
                 <h1 className="font-semibold text-gray-600">{item.name}</h1>
                 <p className="mb-2">{formatCurrency(item.price)}</p>
                 <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
                 <p className="mt-2">Quantity: {item.quantity}</p>
+                <h1 className="font-semibold text-gray-600">Cost: {formatCurrency(item.quantity*item.price)}</h1>
               </CardBody>
+              <span className="block relative h-24 rounded overflow-hidden">
+              <img
+                className="w-full h-full object-contain object-center"
+                loading="lazy"
+                decoding="async"
+                src={item.image_url}
+                alt={item.name}
+              />
+              </span>
             </Card>
           ))}
         </div>

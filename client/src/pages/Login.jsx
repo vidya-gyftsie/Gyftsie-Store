@@ -120,14 +120,14 @@ const Login = () => {
           <Button type="submit" disabled={isLoading}>
             {isLoading ? <PulseLoader color={"#0a138b"} size={10} loading={isLoading} /> : "Login"}
           </Button>
-          <GoogleLogin
+         {/*<GoogleLogin
             className="my-4 flex justify-center"
             clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
             buttonText="Log in with Google"
             onSuccess={handleGoogleLogin}
             onFailure={handleGoogleLogin}
             cookiePolicy={"single_host_origin"}
-          />
+          />*/}
           <p className="text-sm mt-4">
             Don't have an account?{" "}
             <Link to="/signup" className="font-bold">

@@ -64,7 +64,7 @@ const Layout = ({ children, title, loading }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              @dhatGuy
+              @gyftsieinc.
             </a>
           </p>
         </footer>

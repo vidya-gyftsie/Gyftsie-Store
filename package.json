@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "react-paypal-checkout-button": "^2.0.3"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node server",
     "server": "cd server && nodemon",

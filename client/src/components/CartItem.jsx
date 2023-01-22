@@ -13,6 +13,17 @@ const CartItem = ({ item }) => {
   };
   return (
     <>
+      <TableCell>
+         <span className="block relative h-12 rounded overflow-hidden">
+          <img
+            className="w-full h-full object-contain object-center"
+            loading="lazy"
+            decoding="async"
+            src={item.image_url}
+            alt={item.name}
+          />
+        </span>
+      </TableCell>
       <TableCell>{item.name}</TableCell>
       <TableCell>{formatCurrency(item.price)}</TableCell>
       <TableCell className="flex items-center">

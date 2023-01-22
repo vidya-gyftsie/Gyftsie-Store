@@ -24,7 +24,7 @@ const Orders = () => {
     setCurrentPage(num);
   };
   const goToDetails = (order) => {
-    navigate(`orders/${order.order_id}`, { state: { order } });
+    navigate(`/orders/${order.order_id}`, { state: { order } });
   };
   useEffect(() => {
     orderService.getAllOrders(currentPage).then((res) => setOrders(res.data));

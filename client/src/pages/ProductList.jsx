@@ -36,8 +36,8 @@ const ProductList = () => {
           ))}
         </Card>
         <Pagination
-          totalResults={20}
-          resultsPerPage={12}
+          totalResults={200}
+          resultsPerPage={20}
           onChange={handleChange}
           label="Page navigation"
         />
