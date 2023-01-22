@@ -3,7 +3,6 @@ import ForgotPasswordModal from "components/ForgotPasswordModal";
 import { useUser } from "context/UserContext";
 import Layout from "layout/Layout";
 import { useState } from "react";
-import GoogleLogin from "react-google-login";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, Navigate, useLocation } from "react-router-dom";
@@ -74,8 +73,7 @@ const Login = () => {
             <Input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="email"
-              name="email"
-              ref={register({
+              {...register('email', {
                 required: true,
                 // eslint-disable-next-line no-useless-escape
                 pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
@@ -83,7 +81,7 @@ const Login = () => {
               placeholder="Enter a valid email"
             />
           </div>
-          {errors.email && errors.email.type === "required" && (
+          {/*{errors.email && errors.email.type === "required" && (
             <HelperText className="mt-1 italic" valid={false}>
               Email required
             </HelperText>
@@ -92,7 +90,7 @@ const Login = () => {
             <HelperText className="mt-1 italic" valid={false}>
               Invalid email
             </HelperText>
-          )}
+          )}*/}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
               <span>Password</span>
@@ -100,11 +98,10 @@ const Login = () => {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="password"
-              name="password"
-              ref={register({ required: true })}
+              {...register('password', { required: true })}
             />
           </div>
-          {errors.password && errors.password.type === "required" && (
+          {/*{errors.password && errors.password.type === "required" && (
             <HelperText className="mt-1 italic" valid={false}>
               Password required
             </HelperText>
@@ -116,7 +113,7 @@ const Login = () => {
           )}
           <div className="mt-4">
             <ForgotPasswordModal />
-          </div>
+          </div>*/}
           <Button type="submit" disabled={isLoading}>
             {isLoading ? <PulseLoader color={"#0a138b"} size={10} loading={isLoading} /> : "Login"}
           </Button>

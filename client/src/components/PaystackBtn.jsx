@@ -2,7 +2,6 @@ import { Button } from "@windmill/react-ui";
 import { useCart } from "context/CartContext";
 import { useUser } from "context/UserContext";
 import toast from "react-hot-toast";
-import { usePaystackPayment } from "react-paystack";
 import { useNavigate } from "react-router-dom";
 import orderService from "services/order.service";
 
@@ -34,7 +33,7 @@ const PaystackBtn = ({ isProcessing, setIsProcessing }) => {
     publicKey: import.meta.env.VITE_PAYSTACK_PUB_KEY,
   };
 
-  const initializePayment = usePaystackPayment(config);
+  //const initializePayment = usePaystackPayment(config);
   return (
     <Button
       disabled={isProcessing}
