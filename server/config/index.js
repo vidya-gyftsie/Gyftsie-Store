@@ -7,7 +7,12 @@ const database =
     ? process.env.POSTGRES_DB_TEST
     : process.env.POSTGRES_DB;
 
-const connectionString = `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${database}`;
+let connectionString = '';
+if (isProduction) {
+  connectionString = 'postgresql://gyftsie_app:password@gyftsie-store.cxaukzo5ss7k.us-west-1.rds.amazonaws.com:5432/gyftsietest'
+} else {
+  connectionString = `postgresql://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${database}`;
+}
 const pool = new Pool({
   connectionString,
   /*
