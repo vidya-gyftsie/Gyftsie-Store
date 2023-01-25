@@ -1,5 +1,4 @@
 import { CardElement, Elements, ElementsConsumer } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 import { Button, HelperText } from "@windmill/react-ui";
 import API from "api/axios.config";
 import { useCart } from "context/CartContext";
@@ -9,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
 import OrderService from "services/order.service";
 import OrderSummary from "./OrderSummary";
-import PaystackBtn from "./PaystackBtn";
 import PayPalCheckout from 'react-paypal-checkout-button'
 import 'react-paypal-checkout-button/dist/index.css'
 
@@ -17,7 +15,6 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
   const { cartSubtotal, cartTotal, cartData, setCartData } = useCart();
   const [error, setError] = useState();
   const [isProcessing, setIsProcessing] = useState(false);
-  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUB_KEY);
   const navigate = useNavigate();
 
   const handleSubmit = async (e, elements, stripe) => {
@@ -115,6 +112,7 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
                   state: {
                     fromPaymentPage: true,
                     orderId: order.id,
+                    message: "Have a nice day"
                   },
                 });
             });

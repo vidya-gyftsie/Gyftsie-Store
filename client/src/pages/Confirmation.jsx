@@ -29,6 +29,7 @@ const Confirmation = () => {
             <p className="">Thank you for your purchase, {`${userData?.fullname}`}!</p>
             <p className="">Order Id: {`${state?.orderId}`} </p><br/>
             <p className="text-xl">Please call (408)387-4646 to arrange pickup.</p><br/>
+            <p className="text-xl">{`${state?.message}`}</p><br/>
             <p className="flex flex-col md:flex-row space-y-2.5 md:space-y-0 md:space-x-2 mt-2">
               <Button tag={Link} to="/products" layout="outline">
                 Continue shopping

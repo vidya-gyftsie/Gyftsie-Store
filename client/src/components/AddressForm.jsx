@@ -31,9 +31,9 @@ const PaymentForm = ({ next }) => {
             type="text"
             className="shadow appearance-none border rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             name="fullname"
-            ref={register({ required: "Required" })}
+            {...register('fullname', { required: "Required" })}
           />
-          {errors.fullname && <HelperText valid={false}>{errors.fullname.message}</HelperText>}
+          {/*{errors.fullname && <HelperText valid={false}>{errors.fullname.message}</HelperText>}*/}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
           <span>Email</span>
@@ -42,9 +42,9 @@ const PaymentForm = ({ next }) => {
             className="shadow appearance-none border rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="email"
-            ref={register({ required: "Required" })}
+            {...register('email', { required: "Required" })}
           />
-          {errors.email && <HelperText valid={false}>{errors.email.message}</HelperText>}
+          {/*{errors.email && <HelperText valid={false}>{errors.email.message}</HelperText>}*/}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
           <span>Address</span>
@@ -52,9 +52,9 @@ const PaymentForm = ({ next }) => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="address"
-            ref={register({ required: "Required" })}
+            {...register('address', { required: "Required" })}
           />
-          {errors.address && <HelperText valid={false}>{errors.address.message}</HelperText>}
+          {/*{errors.address && <HelperText valid={false}>{errors.address.message}</HelperText>}*/}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
           <span>Country</span>
@@ -62,9 +62,9 @@ const PaymentForm = ({ next }) => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="country"
-            ref={register({ required: "Required" })}
+            {...register('country', { required: "Required" })}
           />
-          {errors.country && <HelperText valid={false}>{errors.country.message}</HelperText>}
+          {/*{errors.country && <HelperText valid={false}>{errors.country.message}</HelperText>}*/}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
           <span>State/Region</span>
@@ -72,9 +72,9 @@ const PaymentForm = ({ next }) => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="state"
-            ref={register({ required: "Required" })}
+            {...register('state', { required: "Required" })}
           />
-          {errors.state && <HelperText valid={false}>{errors.state.message}</HelperText>}
+          {/*{errors.state && <HelperText valid={false}>{errors.state.message}</HelperText>}*/}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
           <span>City</span>
@@ -82,9 +82,9 @@ const PaymentForm = ({ next }) => {
             className="shadow appearance-none border rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="city"
-            ref={register({ required: "Required" })}
+            {...register('city', { required: "Required" })}
           />
-          {errors.city && <HelperText valid={false}>{errors.city.message}</HelperText>}
+          {/*{errors.city && <HelperText valid={false}>{errors.city.message}</HelperText>}*/}
         </Label>
         <div className="flex justify-between">
           <Button tag={Link} to="/cart" layout="outline" size="small">

@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const helmet = require("helmet");
 const compression = require("compression");
+const path = require("path");
 //const unknownEndpoint = require("./middleware/unKnownEndpoint");
 //const { handleError } = require("./helpers/error");
 
@@ -25,6 +26,14 @@ app.use(express.json());
 app.use(compression());
 //app.use(helmet());
 app.use(cookieParser());
+
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.get('/image', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+}
 
 app.use("/api", routes);
 

@@ -22,6 +22,9 @@ export default defineConfig({
       ...absolutePathAliases,
     },
   },
+  build: {
+    outDir: 'build'
+  },
   plugins: [react()],
   server: {
     watch: {

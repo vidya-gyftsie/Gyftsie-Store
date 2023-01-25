@@ -11,7 +11,9 @@
   },
   "scripts": {
     "heroku-prebuild": "cd server && npm install && cd ../client && npm install && cd .. ",
+    "build": "cd client && npm run build",
     "start": "node server",
+    "prod": "export NODE_ENV=production && node server",
     "server": "cd server && node index",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
