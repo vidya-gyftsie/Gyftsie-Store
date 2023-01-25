@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 
 const url =
   process.env.NODE_ENV === "production"
-    ? "https://pern-store.netlify.app"
+    ? "https://localhost:" + process.env.PORT
     : "http://localhost:3000";
 
 const signupMail = async (to, name) => {

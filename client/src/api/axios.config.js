@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = import.meta.env.PROD ? "http://localhost:8080/api" : "http://localhost:8080/api";
+const baseURL = import.meta.env.PROD ? "http://localhost:5000/api" : "http://localhost:8080/api";
 
 const API = axios.create({
   baseURL,
