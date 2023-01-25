@@ -11,7 +11,7 @@ const compression = require("compression");
 
 const app = express();
 const corsOptions ={
-    //origin:['http://localhost:3000', 'https://59fd-2601-646-9401-2280-f0ee-476e-602c-c9.ngrok.io'], 
+    //origin:['http://localhost:3000', 'https://187f-2601-646-9401-2280-f0ee-476e-602c-c9.ngrok.io'], 
     origin: function(origin, callback){
       return callback(null, true);
     },
