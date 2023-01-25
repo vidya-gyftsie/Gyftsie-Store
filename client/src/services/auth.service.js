@@ -2,6 +2,7 @@ import API from "api/axios.config";
 
 class AuthService {
   async login(email, password) {
+    console.log("Here1");
     const { data } = await API.post("/auth/login", {
       email,
       password,

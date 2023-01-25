@@ -110,10 +110,10 @@ const Login = () => {
             <HelperText className="mt-1 italic" valid={false}>
               {error}
             </HelperText>
-          )}
+          )}*/}
           <div className="mt-4">
             <ForgotPasswordModal />
-          </div>*/}
+          </div>
           <Button type="submit" disabled={isLoading}>
             {isLoading ? <PulseLoader color={"#0a138b"} size={10} loading={isLoading} /> : "Login"}
           </Button>
@@ -124,7 +124,7 @@ const Login = () => {
             onSuccess={handleGoogleLogin}
             onFailure={handleGoogleLogin}
             cookiePolicy={"single_host_origin"}
-          />*/}
+          /> */}
           <p className="text-sm mt-4">
             Don't have an account?{" "}
             <Link to="/signup" className="font-bold">

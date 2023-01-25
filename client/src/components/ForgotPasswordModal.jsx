@@ -65,7 +65,7 @@ const ForgotPasswordModal = () => {
                   valid
                   type="email"
                   inputMode="email"
-                  ref={register({
+                  {...register('email',{
                     required: "Email required",
                     pattern: {
                       // eslint-disable-next-line no-useless-escape
@@ -75,7 +75,7 @@ const ForgotPasswordModal = () => {
                   })}
                 />
               </Label>
-              {errors.email && errors.email.type === "required" && (
+              {/*{errors.email && errors.email.type === "required" && (
                 <HelperText className="mt-2" valid={false}>
                   {errors.email.message}
                 </HelperText>
@@ -89,7 +89,7 @@ const ForgotPasswordModal = () => {
                 <HelperText className="mt-2" valid={false}>
                   {msg}
                 </HelperText>
-              )}
+              )}*/}
             </ModalBody>
             <ModalFooter>
               <Button
