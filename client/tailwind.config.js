@@ -28,8 +28,11 @@ module.exports = windmill({
       green: colors.emerald,
       blue: colors.blue,
       indigo: colors.indigo,
-      purple: colors.violet,
-      pink: colors.pink,
+      purple: colors.purple,
+      pink: colors.purple,
+      cyan: colors.cyan,
+      teal: colors.teal,
+      emerald: colors.emerald,
     },
     spacing: {
       px: "1px",
@@ -150,7 +153,7 @@ module.exports = windmill({
     divideColor: (theme) => theme("borderColor"),
     divideOpacity: (theme) => theme("borderOpacity"),
     divideWidth: (theme) => theme("borderWidth"),
-    fill: { current: "currentColor" },
+    fill: { current: "colors.blue.DEFAULT" },
     flex: {
       1: "1 1 0%",
       auto: "1 1 auto",

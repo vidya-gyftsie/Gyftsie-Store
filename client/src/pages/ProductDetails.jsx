@@ -4,6 +4,7 @@ import { formatCurrency } from "helpers/formatCurrency";
 import Layout from "layout/Layout";
 import React, { useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import productService from "services/product.service";
 
@@ -15,6 +16,7 @@ const ProductDetails = () => {
 
   const addToCart = async (e) => {
     await addItem(product, 1);
+    toast.success("Added to Cart");
   };
 
   useEffect(() => {

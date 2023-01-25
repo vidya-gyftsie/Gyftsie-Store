@@ -3,6 +3,7 @@ import { useCart } from "context/CartContext";
 import { ShoppingCart } from "react-feather";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../helpers/formatCurrency";
+import toast from "react-hot-toast";
 
 const Product = ({ product }) => {
   const { addItem } = useCart();
@@ -10,6 +11,7 @@ const Product = ({ product }) => {
   const addToCart = async (e) => {
     e.preventDefault();
     await addItem(product, 1);
+    toast.success("Added to Cart");
   };
   return (
     <Link to={`/products/${product.product_id}`}>
