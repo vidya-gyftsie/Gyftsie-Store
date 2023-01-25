@@ -99,7 +99,8 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
       <PaystackBtn isProcessing={isProcessing} setIsProcessing={setIsProcessing} />*/}
 
       <PayPalCheckout
-          clientId={import.meta.env.VITE_PAYPAL_CLIENT_ID}
+          //clientId={import.meta.env.VITE_PAYPAL_CLIENT_ID}
+          clientId='AYAFMD1u-CjVRsd6YHB12MblntMA7xbQe0qEsAWE5DfI0O4cUWhxKg7T2u5uuTBbDfWrmupDLe0DAY70'
           amount={cartSubtotal}
           currency='USD'
           onSuccess={(data, order) => {
