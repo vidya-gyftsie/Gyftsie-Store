@@ -26,20 +26,19 @@ app.use(express.json());
 app.use(compression());
 //app.use(helmet());
 app.use(cookieParser());
-
+app.use("/api", routes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, '../client/build')));
-  app.get('/image', (req, res) => {
+  app.get("/*", (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
+} else {
+  app.get("/*", (req, res) =>
+    res.send("<h1 style='text-align: center'>E-COMMERCE API</h1>")
+  );
 }
 
-app.use("/api", routes);
-
-app.get("/", (req, res) =>
-  res.send("<h1 style='text-align: center'>E-COMMERCE API</h1>")
-);
 //app.use(unknownEndpoint);
 //app.use(handleError);
 

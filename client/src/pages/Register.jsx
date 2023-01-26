@@ -64,7 +64,7 @@ const Register = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="text"
               name="username"
-              ref={register({
+              {...register('username', {
                 minLength: {
                   value: 4,
                   message: "Username must be greater than 3 characters",
@@ -73,7 +73,7 @@ const Register = () => {
               })}
             />
           </div>
-          {errors.username && errors.username.type === "required" && (
+          {/*{errors.username && errors.username.type === "required" && (
             <HelperText className="pt-2" valid={false}>
               {errors.username.message}
             </HelperText>
@@ -82,7 +82,7 @@ const Register = () => {
             <HelperText className="pt-2" valid={false}>
               {errors.username.message}
             </HelperText>
-          )}
+          )}*/}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
               <span>Fullname</span>
@@ -91,7 +91,7 @@ const Register = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="text"
               name="name"
-              ref={register({
+              {...register('name', {
                 required: "Name cannot be empty",
                 minLength: {
                   value: 6,
@@ -100,7 +100,7 @@ const Register = () => {
               })}
             />
           </div>
-          {errors.name && errors.name.type === "required" && (
+          {/*{errors.name && errors.name.type === "required" && (
             <HelperText className="pt-2" valid={false}>
               {errors.name.message}
             </HelperText>
@@ -109,7 +109,7 @@ const Register = () => {
             <HelperText className="pt-2" valid={false}>
               {errors.name.message}
             </HelperText>
-          )}
+          )}*/}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
               <span>Email</span>
@@ -118,7 +118,7 @@ const Register = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="email"
               name="email"
-              ref={register({
+              {...register('email', {
                 required: "Email required",
                 pattern: {
                   // eslint-disable-next-line no-useless-escape
@@ -128,7 +128,7 @@ const Register = () => {
               })}
             />
           </div>
-          {errors.email && errors.email.type === "required" && (
+          {/*{errors.email && errors.email.type === "required" && (
             <HelperText className="pt-2" valid={false}>
               {errors.email.message}
             </HelperText>
@@ -137,7 +137,7 @@ const Register = () => {
             <HelperText className="pt-2" valid={false}>
               {errors.email.message}
             </HelperText>
-          )}
+          )}*/}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
               <span>Password</span>
@@ -146,7 +146,7 @@ const Register = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="password"
               name="password"
-              ref={register({
+              {...register('password', {
                 required: "Password required",
                 minLength: {
                   value: 6,
@@ -155,7 +155,7 @@ const Register = () => {
               })}
             />
           </div>
-          {errors.password && errors.password.type === "required" && (
+          {/*{errors.password && errors.password.type === "required" && (
             <HelperText className="pt-2" valid={false}>
               {errors.password.message}
             </HelperText>
@@ -164,7 +164,7 @@ const Register = () => {
             <HelperText className="pt-2" valid={false}>
               {errors.password.message}
             </HelperText>
-          )}
+          )}*/}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
               <span>Confirm Password</span>
@@ -173,15 +173,15 @@ const Register = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="password"
               name="password2"
-              ref={register({
+              {...register('password2', {
                 validate: (value) => value === password.current || "Passwords do not match",
               })}
             />
-            {errors.password2 && (
+            {/*{errors.password2 && (
               <HelperText className="pt-2" valid={false}>
                 {errors.password2.message}
               </HelperText>
-            )}
+            )}*/}
           </div>
           <Button type="submit" className="mt-4">
             {isLoading ? (
@@ -190,11 +190,11 @@ const Register = () => {
               "Create Account"
             )}
           </Button>
-          {error && (
+          {/*{error && (
             <HelperText className="pt-2" valid={false}>
               {error}
             </HelperText>
-          )}
+          )}*/}
           <p className="text-sm mt-4">
             Have an account?{" "}
             <Link to="/login" className="font-bold">

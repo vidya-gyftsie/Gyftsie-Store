@@ -62,7 +62,7 @@ const ResetPassword = () => {
                   type="password"
                   inputMode="password"
                   name="password"
-                  ref={register({
+                  {...register('password', {
                     required: "Password cannot be empty",
                     minLength: {
                       value: 6,
@@ -70,7 +70,7 @@ const ResetPassword = () => {
                     },
                   })}
                 />
-                {errors.password && errors.password.type === "required" && (
+                {/*{errors.password && errors.password.type === "required" && (
                   <HelperText className="pt-2" valid={false}>
                     {resetmsg.message}
                   </HelperText>
@@ -79,7 +79,7 @@ const ResetPassword = () => {
                   <HelperText className="pt-2" valid={false}>
                     {resetmsg.message}
                   </HelperText>
-                )}
+                )}*/}
               </Label>
               <Label className="mb-4">
                 <span className="block text-gray-700 text-sm font-bold mb-2">Confirm Password</span>
@@ -88,12 +88,12 @@ const ResetPassword = () => {
                   type="password"
                   inputMode="password"
                   name="password2"
-                  ref={register({
+                  {...register('password2', {
                     validate: (value) => value === password.current || "Passwords do not match",
                   })}
                 />
               </Label>
-              {errors.password && errors.password.type === "required" && (
+              {/*{errors.password && errors.password.type === "required" && (
                 <HelperText className="pt-2" valid={false}>
                   {resetmsg.message}
                 </HelperText>
@@ -102,7 +102,7 @@ const ResetPassword = () => {
                 <HelperText className="pt-2" valid={false}>
                   {resetmsg.message || ""}
                 </HelperText>
-              )}
+              )}*/}
               <Button type="submit" disabled={isResetting}>
                 {isResetting ? <PulseLoader size={10} color={"#0a138b"} /> : "Reset Password"}
               </Button>

@@ -11,6 +11,7 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     setIsLoading(true);
     productService.getProducts(page).then((response) => {
+      console.log(response);
       setProducts(response.data);
       setIsLoading(false);
     });
@@ -30,6 +31,7 @@ const useProduct = () => {
   if (context === undefined) {
     throw new Error("useProduct must be used within a ProductProvider");
   }
+  console.log(context);
   return context;
 };
 
